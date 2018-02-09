@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+  <style media="screen">
+    * {
+      box-sizing: border-box;
+    }
+
+    .calculator {
+      width: 240px;
+      padding: 0;
+      margin: 0 auto;
+      border: 1px solid #000;
+    }
+
+    #calculator-screen {
+      width: 100%;
+      height: 45px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 1px solid #000
+    }
+
+    .calculator-buttons {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border: 1px solid #000;
+    }
+
+    .calculator-buttons__li, .calculator-buttons__li-equal, .calculator-buttons__li-clear {
+      float: left;
+      width: 25%;
+      height: 40px;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid #000;
+    }
+
+    .calculator-buttons__li-equal {
+      width:100%;
+    }
+
+    .calculator-buttons__li:hover, .calculator-buttons__li-equal:hover
+    .calculator-buttons__li-clear:hover {
+      background-color: #f4f4f4;
+    }
+
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="calculator">
+    <input type="text" name="" value="" id="calculator-screen" placeholder="0">
+  <ul class="calculator-buttons">
+    <li class="clear"></li>
+    <li class="calculator-buttons__li">7</li>
+    <li class="calculator-buttons__li">8</li>
+    <li class="calculator-buttons__li">9</li>
+    <li class="calculator-buttons__li-clear">C</li>
+    <li class="clear"></li>
+    <li class="calculator-buttons__li">4</li>
+    <li class="calculator-buttons__li">5</li>
+    <li class="calculator-buttons__li">6</li>
+    <li class="calculator-buttons__li">/</li>
+    <li class="clear"></li>
+    <li class="calculator-buttons__li">1</li>
+    <li class="calculator-buttons__li">2</li>
+    <li class="calculator-buttons__li">3</li>
+    <li class="calculator-buttons__li">*</li>
+    <li class="clear"></li>
+    <li class="calculator-buttons__li">.</li>
+    <li class="calculator-buttons__li">0</li>
+    <li class="calculator-buttons__li">+</li>
+    <li class="calculator-buttons__li">-</li>
+    <li class="clear"></li>
+    <li class="calculator-buttons__li-equal">=</li>
+    <li class="clear"></li>
+  </ul>
+</div>
+
+
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
