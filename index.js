@@ -1,5 +1,5 @@
 //PROBLEM - basic calculator which takes multiple expressions to processs & output the result
-//Solution - take the input make it array then process & output the result
+//SOLUTION - take the input make it array then process & output the result
 
 
 
@@ -14,19 +14,13 @@ var inArr = ["+", "-", "/", "*"];
 
 btns.click(function(e) {
 
-  var text  = $(this).text();
-  var last = Arr
+  var text = $(this).text();
 
-  console.log(last);
 
   //if(inArr.indexOf(text) > -1) { Arr.push(text); }
-  //c
-  //if() {  }
 
   Arr.push(text);
 
-
-  //val += text;
   screen.val(Arr.join(""));
 
 });
@@ -35,38 +29,35 @@ equal.click(function(e) {
 //  console.log(Arr);
   //var b = [+, -, *, /];
 
-  var d = val.split("+");
+    var d = [];
+    var s = -1;
+    console.log(s);
 
-  console.log(Arr);
+   Arr.forEach(function(num){
+      if(Number(num)) {
+        d.push(Number(num));
+      }else {
+        d.push(num);
+      }
+   });
 
-  //var a = Arr.join("");
-  // var b = Ar;
-  // console.log(a);
-  ///Arr.forEach(function(num, index) {
+    console.log(d);
 
-  //    console.log(index);
-  //    console.log(num);
+    var r = null;
+
+    d.forEach(function(num) {
+
+      if(Number(num)) {
+        r += num;
+      }else {
+        if(num === "+") {
+          r += '&plus';
+        }
+      }
 
 
+    });
 
-      // if(num === "+") {
-      //   a += Number(num)+(Number(num));
-      // }
-      // if(num === "-") {
-      //   a += ""-"";
-      // }
-      // if(num === "*") {
-      //   a += ""*"";
-      // }
-      // if(num === "/") {
-      //   a += ""/"";
-      // }
-      //
-      // if(Number(num)) {
-      //   a += Number(num);
-      // }
-
-  //});
 
 
   //console.log(eval(a));
@@ -78,34 +69,38 @@ clear.click(function(e) {
   Arr = [];
   screen.val("").focus();
 });
-var n = ["23", "+", "2"];
 
-var e = "";
 
-n.forEach(function(num) {
 
-  e = num
-  console.log(typeof Number(num));
-})
+var arrayList = ["23", "+", "2", "-", "1", "/", "2"];
+var result= null, skip= null, n= null, i= null, a  = null;
 
-n.forEach(function(num, index) {
-  //e = num n[index+1] n[index+2];
-  if(num === "+") {
-    e = Number(n[index-1]) + Number(n[index+1]);
-  }
+arrayList.forEach(function(num, index, arrayList) {
 
-  if(num === "-") {
+  n = Number(num);
+  i = index+1;
+  a = Number(arrayList[i]);
 
-  }
+  if(n) {
+    if(skip !== index) {
+      result += n;
+    }
+  }else {
 
-  if(num === "*") {
+    if(num.indexOf(inArr)) { skip = i; }
 
-  }
-
-  if(num === "/") {
+    if(num === "+") { result += a; }
+    if(num === "-") { result -= a; }
+    if(num === "*") { result *= a; }
+    if(num === "/") { result /= a; }
 
   }
 
 });
 
-console.log(Arr);
+console.log(result);
+
+// var y = 1;
+// var g = "+";
+// var re g= 4;
+// console.log(re)
