@@ -2,7 +2,6 @@
 //SOLUTION - take the input make it array then process & output the result
 
 
-
 var screen = $("#calculator-screen");
 var btns = $(".calculator-buttons__li");
 var equal = $(".calculator-buttons__li-equal");
@@ -12,57 +11,60 @@ var Ar = [];
 var val = "";
 var inArr = ["+", "-", "/", "*"];
 
-btns.click(function(e) {
+btns.click(calculatorInput);
+//screen.on("change", calculatorInput);
+
+function calculatorInput(e) {
 
   var text = $(this).text();
-
+      text = $.trim(text);
 
   //if(inArr.indexOf(text) > -1) { Arr.push(text); }
 
+  if(!text.length >0 ) {
+    console.log(1);
+  }
+
   Arr.push(text);
+
+  console.log(Arr);
 
   screen.val(Arr.join(""));
 
-});
+}
 
 equal.click(function(e) {
-//  console.log(Arr);
-  //var b = [+, -, *, /];
 
-    var d = [];
-    var s = -1;
-    console.log(s);
+  var result= null, skip= null, n= null, i= null, a  = null;
 
-   Arr.forEach(function(num){
-      if(Number(num)) {
-        d.push(Number(num));
-      }else {
-        d.push(num);
-      }
-   });
+   Arr.forEach(function calculate(num, index, Arr) {
 
-    console.log(d);
+     n = Number(num);
+     i = index+1;
+     a = Number(Arr[i]);
 
-    var r = null;
+     if(n) {
+       if(skip !== index) {
+         result += n;
+       }
+     }else {
 
-    d.forEach(function(num) {
+       if(num.indexOf(inArr)) { skip = i; }
 
-      if(Number(num)) {
-        r += num;
-      }else {
-        if(num === "+") {
-          r += '&plus';
-        }
-      }
+       if(num === "+") { result += a; }
+       if(num === "-") { result -= a; }
+       if(num === "*") { result *= a; }
+       if(num === "/") { result /= a; }
 
+     }
 
-    });
+  });
 
-
-
-  //console.log(eval(a));
+  screen.val(result);
 
 });
+
+
 
 
 clear.click(function(e) {
@@ -72,35 +74,5 @@ clear.click(function(e) {
 
 
 
-var arrayList = ["23", "+", "2", "-", "1", "/", "2"];
-var result= null, skip= null, n= null, i= null, a  = null;
-
-arrayList.forEach(function(num, index, arrayList) {
-
-  n = Number(num);
-  i = index+1;
-  a = Number(arrayList[i]);
-
-  if(n) {
-    if(skip !== index) {
-      result += n;
-    }
-  }else {
-
-    if(num.indexOf(inArr)) { skip = i; }
-
-    if(num === "+") { result += a; }
-    if(num === "-") { result -= a; }
-    if(num === "*") { result *= a; }
-    if(num === "/") { result /= a; }
-
-  }
-
-});
-
-console.log(result);
-
-// var y = 1;
-// var g = "+";
-// var re g= 4;
-// console.log(re)
+// var arrayList = ["23", "+", "2", "-", "1", "/", "2"];
+//
